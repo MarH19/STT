@@ -83,7 +83,7 @@ class Finetuner():
             gradient_accumulation_steps = self.config.gradient_accumulation_steps,
             optim = self.config.optimizer,
             #save_steps = self.config.save_steps,  
-            save_strategy="epoch", # save_strategy and eval_strategy must be identic
+            save_strategy="steps", # save_strategy and eval_strategy must be identic
             logging_steps = self.config.logging_steps,
             learning_rate = self.config.learning_rate,
             fp16 = self.config.fp16,
@@ -95,9 +95,9 @@ class Finetuner():
             group_by_length = self.config.group_by_length,
             max_steps = self.config.max_steps,
             report_to = "tensorboard",
-            eval_strategy ="epoch",
+            eval_strategy ="steps",
             eval_steps=self.config.eval_steps, # in config anpassen
-            load_best_model_at_end=True,
+            load_best_model_at_end=False,
            
         )
 
